@@ -11,12 +11,10 @@ export class CarruselComponent {
   avanzar: number = 1;
 
   slides = [
-    { imgUrl: 'https://www.sportsbusinessjournal.com/Articles/2023/09/13/img-unveils-new-logo/' },
-    { imgUrl: 'https://www.k12digest.com/wp-content/uploads/2024/03/1-3-550x330.jpg' },
-    { imgUrl: 'https://www.k12digest.com/wp-content/uploads/2024/03/1-3-550x330.jpg' },
-    { imgUrl: 'https://www.k12digest.com/wp-content/uploads/2024/03/1-3-550x330.jpg' },
-    { imgUrl: 'https://www.k12digest.com/wp-content/uploads/2024/03/1-3-550x330.jpg' },
-    { imgUrl: 'https://www.k12digest.com/wp-content/uploads/2024/03/1-3-550x330.jpg' },
+    { imgUrl: 'https://colineal.com/cdn/shop/files/Sala-Sky_1600x1200_1.jpg?v=1752615387&width=1000' },
+    { imgUrl: 'https://colineal.com/cdn/shop/collections/sala.jpg?v=1742413312&width=1400' },
+    { imgUrl: 'https://colineal.com/cdn/shop/collections/sala-madison-1200x628.jpg?v=1706737262&width=1200' },
+    
   ];
 
 }
