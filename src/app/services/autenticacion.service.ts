@@ -7,7 +7,7 @@ import { map, Observable } from 'rxjs';
 })
 export class AutenticacionService {
 
-  private usuariosUrl = 'assets/baseDatos.json';
+  private usuariosUrl = 'http://localhost:3000/usuarios';
 
 
   constructor(private http: HttpClient) { }

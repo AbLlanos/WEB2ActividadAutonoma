@@ -1,87 +1,124 @@
 <app-navbar></app-navbar>
 
-<div class="bg-gray-800 pt-20">
-    <!--(ngSubmit)="camposSinLlenar()" #formulario="ngForm"-->
-    <form [formGroup]="registroForm" (ngSubmit)="registrar()" class="max-w-sm mx-auto">
-        <div class="mb-5">
-            <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
-            <input name="nombre" formControlName="nombre" type="text" id="nombre"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="name@flowbite.com" />
-            <!--Con el ? evita enviar directo-->
-            @if (registroForm.get("nombre")?.invalid && registroForm.get("nombre")?.touched) {
-            <span class="text-red-500 text-sm">El nombre es obligatorio</span>
-            }
-        </div>
-        <div class="mb-5">
-            <label for="profesion"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Preofesion</label>
-            <input name="profesion" formControlName="profesion" type="text" id="profesion"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="name@flowbite.com" />
-            @if (registroForm.get("profesion")?.invalid && registroForm.get("profesion")?.touched) {
-            <span class="text-red-500 text-sm">La profesion es obligatorio</span>
-            }
-        </div>
+<div class="pb-8 bg-yellow-100">
 
-        <div class="mb-5">
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-            <input name="email" formControlName="email" type="email" id="email"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="name@flowbite.com" />
-            @if (registroForm.get("email")?.invalid && registroForm.get("email")?.touched) {
-            <span class="text-red-500 text-sm">El email es obligatorio</span>
-            }
-        </div>
+    <div class="bg-yellow-100 min-h-screen flex items-center justify-center pt-10 pb-20">
+        <div class="w-full max-w-md bg-white border border-yellow-600 rounded-2xl shadow-xl p-8">
 
-        <div class="mb-5">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
-                password</label>
-            <input name="password" formControlName="password" type="password" id="password"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-            @if (registroForm.get("password")?.invalid && registroForm.get("password")?.touched) {
-            <span class="text-red-500 text-sm">La contraseña es obligatorio</span>
-            }
-        </div>
+            <h2 class="text-3xl font-bold text-yellow-900 mb-8 text-center">Registro de Usuario</h2>
 
-        <!--
-        <div class="mb-5">
-            <label for="fecha" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">FECHA de
-                nacimineto</label>
-            <input name="fechaNacimiento" formControlName="fechaNacimiento" type="date" id="fecha"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-            @if (registroForm.get("fechaNacimiento")?.invalid && registroForm.get("fechaNacimiento")?.touched) {
-            <span class="text-red-500 text-sm">La fecha de nacimineto es obligatorio</span>
-            }
-            
-        </div>
-        -->
+            <form [formGroup]="registroForm" (ngSubmit)="registrar()" class="space-y-6">
 
-        <div class="flex items-start mb-5">
-            <div class="flex items-center h-5">
-                <input id="remember" type="checkbox" value=""
-                    class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                    required />
+                <!-- Nombre -->
+                <div>
+                    <label for="nombre" class="block text-sm font-semibold text-yellow-900 mb-1">Nombre</label>
+
+                    <div class="input-card">
+                        <input id="nombre" name="nombre" formControlName="nombre" type="text"
+                            class="w-full rounded-lg border border-yellow-300 px-4 py-2 focus:ring-2 focus:ring-yellow-600 focus:outline-none"
+                            placeholder="Tu nombre completo" />
+                    </div>
+
+                    @if (registroForm.get("nombre")?.invalid && registroForm.get("nombre")?.touched) {
+                    <span class="text-red-600 text-sm mt-1 block">El nombre es obligatorio</span>
+                    }
+                </div>
+
+
+                <!-- telefono -->
+                <div>
+                    <label for="telefono" class="block text-sm font-semibold text-yellow-900 mb-1">Telefono</label>
+
+                    <div class="input-card">
+
+                        <input id="telefono" name="telefono" formControlName="telefono" type="text"
+                            oninput="this.value = this.value.replace(/\D/g, '')" maxlength="10"
+                            class="w-full rounded-lg border border-yellow-300 px-4 py-2 focus:ring-2 focus:ring-yellow-600 focus:outline-none"
+                            placeholder="teléfono" />
+
+                    </div>
+
+                    @if (registroForm.get("telefono")?.invalid && registroForm.get("telefono")?.touched) {
+                    <span class="text-red-600 text-sm mt-1 block">El teléfono es obligatorio</span>
+                    }
+                </div>
+
+                <!-- Direccion -->
+                <div>
+                    <label for="profesion" class="block text-sm font-semibold text-yellow-900 mb-1">Dirección</label>
+
+                    <div class="input-card">
+                        <input id="profesion" name="profesion" formControlName="profesion" type="text"
+                            class="w-full rounded-lg border border-yellow-300 px-4 py-2 focus:ring-2 focus:ring-yellow-600 focus:outline-none"
+                            placeholder="Av Amazonas OE45" />
+                    </div>
+
+                    @if (registroForm.get("profesion")?.invalid && registroForm.get("profesion")?.touched) {
+                    <span class="text-red-600 text-sm mt-1 block">La dirección es obligatoria</span>
+                    }
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label for="email" class="block text-sm font-semibold text-yellow-900 mb-1">Correo
+                        Electrónico</label>
+
+                    <div class="input-card">
+                        <input id="email" name="email" formControlName="email" type="email"
+                            class="w-full rounded-lg border border-yellow-300 px-4 py-2 focus:ring-2 focus:ring-yellow-600 focus:outline-none"
+                            placeholder="ejemplo@correo.com" />
+                    </div>
+
+                    @if (registroForm.get("email")?.invalid && registroForm.get("email")?.touched) {
+                    <span class="text-red-600 text-sm mt-1 block">El correo electrónico es obligatorio </span>
+                    }
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label for="password" class="block text-sm font-semibold text-yellow-900 mb-1">Contraseña</label>
+
+                    <div class="input-card">
+                        <input id="password" name="password" formControlName="password" type="password"
+                            class="w-full rounded-lg border border-yellow-300 px-4 py-2 focus:ring-2 focus:ring-yellow-600 focus:outline-none"
+                            placeholder="••••••••" />
+                    </div>
+
+                    @if (registroForm.get("password")?.invalid && registroForm.get("password")?.touched) {
+                    <span class="text-red-600 text-sm mt-1 block">La contraseña es obligatoria y debe tener 6
+                        letras como mínimo</span>
+                    }
+                </div>
+
+                <!-- Checkbox -->
+                <div class="flex items-center justify-center">
+                    <input id="remember" type="checkbox" required
+                        class="w-4 h-4 border border-yellow-400 rounded focus:ring-2 focus:ring-yellow-600" />
+                    <label for="remember" class="ms-2 text-sm text-yellow-900">Recordarme</label>
+                </div>
+
+                <!-- Botón -->
+                <button type="submit"
+                    class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-300">
+                    Registrarse
+                </button>
+            </form>
+
+            <!-- Usuarios registrados -->
+            <div class="mt-10">
+                <h3 class="text-lg text-center font-bold text-yellow-900 mb-2">Usuarios Registrados</h3>
+                @if (usuariosRegistrados.length > 0) {
+                <ul class="list-disc list-inside text-sm text-yellow-800">
+                    @for (usuario of usuariosRegistrados; track usuario.email) {
+                    <li><strong>{{ usuario.nombre }}</strong> - {{ usuario.profesion }} - {{ usuario.email
+                        }}-{{usuario.telefono}}</li>
+                    }
+                </ul>
+                } @else {
+                <p class="text-yellow-700 text-sm">No hay usuarios registrados aún.</p>
+                }
             </div>
-            <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
         </div>
-        <button type="submit"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Registrarse</button>
-    </form>
-
-    <div class="mt-6">
-        <h2 class="text-lg font-bold mb-2">Usuarios Registrados:</h2>
-        @if (usuariosRegistrados.length > 0) {
-        <ul class="list-disc ml-5 text-sm text-gray-700">
-            @for (usuario of usuariosRegistrados; track usuario.email) {
-            <li>
-                <strong>{{ usuario.nombre }}</strong> - {{ usuario.profesion }} - {{ usuario.email }}
-            </li>
-            }
-        </ul>
-        } @else {
-        <p class="text-gray-500 text-sm">No hay usuarios registrados aún.</p>
-        }
     </div>
 
 </div>

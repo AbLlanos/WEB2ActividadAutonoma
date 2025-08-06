@@ -1,16 +1,18 @@
-[
-    {
-        "usuario": "admin",
-        "password": "1234",
-        "nombre": "Administrador",
-        "email": "1234@gmail.com",
-        "profesion": "Desarrollador"
-    },
-    {
-        "usuario": "usuario1",
-        "password": "usuario123",
-        "nombre": "Juan Perez",
-        "email": "juan@gmail.com",
-        "profesion": "Diseñador"
-    }
-]
+{
+    "usuarios": [
+        {
+            "usuario": "admin",
+            "password": "1234",
+            "nombre": "Administrador",
+            "email": "1234@gmail.com",
+            "profesion": "Desarrollador"
+        },
+        {
+            "usuario": "usuario1",
+            "password": "usuario123",
+            "nombre": "Juan Perez",
+            "email": "juan@gmail.com",
+            "profesion": "Diseñador"
+        }
+    ]
+}

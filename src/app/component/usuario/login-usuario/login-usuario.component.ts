@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';  // <-- importar FormsModule
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticacionService } from '../../../services/autenticacion.service';
 import { NavbarComponent } from "../../navbar/navbar.component";
@@ -8,7 +8,7 @@ import { FooterComponent } from "../../footer/footer.component";
 @Component({
   selector: 'app-login-usuario',
   standalone: true,
-  imports: [FormsModule, NavbarComponent, FooterComponent],  // <-- agregar aquí
+  imports: [FormsModule, NavbarComponent, FooterComponent],
   templateUrl: './login-usuario.component.html',
   styleUrls: ['./login-usuario.component.css']
 })
@@ -23,6 +23,8 @@ export class LoginUsuarioComponent {
     this.authServicio.LoginAuthenticacion(this.email, this.password).subscribe(sesionExitosa => {
       if (sesionExitosa) {
         const redireccion = localStorage.getItem("redirectUrl") || "/productos";
+        this.email = '';
+        this.password = '';
         localStorage.removeItem("redirectUrl");
         this.router.navigateByUrl(redireccion);
       } else {

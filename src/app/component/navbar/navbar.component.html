@@ -1,40 +1,46 @@
+<!-- NAVBAR -->
 <nav class="bg-yellow-600 border-yellow-900">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 border-yellow-900">
-    <a routerLink="/home" class="flex items-center space-x-3">
+    <button routerLink="/home" class="flex items-center space-x-3">
       <img src="https://cdn-icons-png.flaticon.com/128/5753/5753620.png" class="h-8" alt="Logo" />
       <span class="self-center text-2xl font-semibold text-yellow-900">CasaArmonía</span>
-    </a>
+    </button>
 
     <div class="flex md:order-2 space-x-3">
-      <button type="button" routerLink="/productos"
-        class="card-hover bg-yellow-800 hover:bg-blue-400 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2">
+      @if (logueado) {
+      <button routerLink="/productos"
+        class="bg-yellow-800 hover:bg-blue-400 text-white font-medium rounded-lg text-sm px-4 py-2">
         Ir a productos
       </button>
-
+      }
     </div>
 
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-      <ul
-        class="flex flex-col font-medium p-4 mt-4 border border-yellow-300 rounded-lg bg-yellow-100 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-transparent">
-        <li>
-          <a routerLink="/home" class="block py-2 px-3 md:p-0 text-yellow-900 hover:text-blue-500 text-xl">Inicio</a>
-        </li>
-        <li>
-          <a routerLink="/nosotros"
-            class="block py-2 px-3 md:p-0 text-yellow-900 hover:text-blue-500 text-xl">Nosotros</a>
-        </li>
-        <li>
-          <a routerLink="/login" class="block py-2 px-3 md:p-0 text-yellow-900 hover:text-blue-500 text-xl">Iniciar
-            sesión</a>
-        </li>
-        <li>
-          <a routerLink="/registro"
-            class="block py-2 px-3 md:p-0 text-yellow-900 hover:text-blue-500 text-xl">Registro</a>
-        </li>
-        
+      <div class="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0">
 
-        
-      </ul>
+        <button routerLink="/home"
+          class="bg-yellow-500 hover:bg-yellow-600 text-yellow-900 font-bold py-2 px-4 rounded">
+          Inicio
+        </button>
+
+        <button routerLink="/nosotros" class="bg-yellow-500 hover:bg-yellow-600 text-yellow-900 font-bold py-2 px-4 rounded">
+          Nosotros
+        </button>
+
+        @if (!logueado) {
+        <button routerLink="/login" class="bg-yellow-500 hover:bg-yellow-600 text-yellow-900 font-bold py-2 px-4 rounded">
+          Iniciar sesión
+        </button>
+
+        <button routerLink="/registro" class="bg-yellow-500 hover:bg-yellow-600 text-yellow-900 font-bold py-2 px-4 rounded">
+          Registro
+        </button>
+        } @else {
+        <button (click)="logOut()" class="bg-yellow-500 hover:bg-yellow-600 text-yellow-900 font-bold py-2 px-4 rounded">
+          Cerrar sesión
+        </button>
+        }
+      </div>
     </div>
   </div>
 </nav>

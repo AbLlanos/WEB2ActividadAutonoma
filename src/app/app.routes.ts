@@ -7,6 +7,7 @@ import { RegistroUsuarioComponent } from './component/usuario/registro-usuario/r
 import { autenticaGuard } from './guards/autentica.guard';
 import { registroUsuarioGuard } from './guards/registro-usuario.guard';
 import { loginCanMatchGuard } from './guards/login-can-match.guard';
+import { ErrorComponent } from './pages/error/error.component';
 
 export const routes: Routes = [
 
@@ -26,6 +27,8 @@ export const routes: Routes = [
 
 
 
-    { path: "**", component: Error }
+      //Pagina No encontrada
+
+    { path: "**", component: ErrorComponent}
 
 ];

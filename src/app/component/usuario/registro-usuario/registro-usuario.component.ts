@@ -22,6 +22,7 @@ export class RegistroUsuarioComponent implements OnInit {
   registroForm: FormGroup = this.fb.group({
     nombre: ["", Validators.required],
     profesion: ["", Validators.required],
+    telefono: ["", Validators.required],
     email: ["", [Validators.required, Validators.email]],
     password: ["", [Validators.required, Validators.minLength(6)]],
   });
@@ -50,7 +51,7 @@ export class RegistroUsuarioComponent implements OnInit {
 
       this.cargarUsuarios();
 
-      this.router.navigateByUrl("/home");
+      this.router.navigateByUrl("/login");
     } else {
       this.registroForm.markAllAsTouched();
       console.log("Formulario no válido");
