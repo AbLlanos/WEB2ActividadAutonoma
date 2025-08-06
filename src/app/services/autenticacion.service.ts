@@ -12,24 +12,27 @@ export class AutenticacionService {
 
   constructor(private http: HttpClient) { }
 
-
-  LoginAuthenticacion(usuario: string, password: string): Observable<boolean> {
-    return this.http.get<any[]>(this.usuariosUrl).pipe(
-      map(usuariosJson => {
-        const usuariosLocales = JSON.parse(localStorage.getItem("usuariosExtras") || "[]");
-
-        const todosUsuarios = [...usuariosJson, ...usuariosLocales];
-
-        const encontrado = todosUsuarios.find(u => u.email === usuario && u.password === password);
-
-        if (encontrado) {
-          localStorage.setItem("user", usuario);
+  LoginAuthenticacion(email: string, password: string): Observable<boolean> {
+    return this.http.get<any[]>(`${this.usuariosUrl}?email=${email}&password=${password}`).pipe(
+      map(users => {
+        if (users.length > 0) {
+          localStorage.setItem('user', JSON.stringify(users[0]));
           return true;
         }
         return false;
       })
     );
   }
+
+  RegistrarUsuario(nuevoUsuario: any): Observable<any> {
+    return this.http.post(this.usuariosUrl, nuevoUsuario);
+  }
+
+
+  obtenerUsuarios(): Observable<any[]> {
+    return this.http.get<any[]>(this.usuariosUrl);
+  }
+
 
   sessionInit(): boolean {
     return localStorage.getItem("user") !== null;

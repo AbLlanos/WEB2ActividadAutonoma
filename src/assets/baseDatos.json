@@ -1,18 +1,36 @@
 {
-    "usuarios": [
-        {
-            "usuario": "admin",
-            "password": "1234",
-            "nombre": "Administrador",
-            "email": "1234@gmail.com",
-            "profesion": "Desarrollador"
-        },
-        {
-            "usuario": "usuario1",
-            "password": "usuario123",
-            "nombre": "Juan Perez",
-            "email": "juan@gmail.com",
-            "profesion": "Diseñador"
-        }
-    ]
+  "usuarios": [
+    {
+      "usuario": "admin",
+      "password": "1234",
+      "nombre": "Administrador",
+      "email": "1234@gmail.com",
+      "profesion": "Desarrollador",
+      "id": "3373"
+    },
+    {
+      "usuario": "usuario1",
+      "password": "usuario123",
+      "nombre": "Juan Perez",
+      "email": "juan@gmail.com",
+      "profesion": "Diseñador",
+      "id": "64ac"
+    },
+    {
+      "id": "1a5b",
+      "nombre": "1234",
+      "profesion": "Av Solis",
+      "telefono": "0789879879",
+      "email": "561@gmail.com",
+      "password": "111111"
+    },
+    {
+      "id": "505c",
+      "nombre": "dasd sadsa ",
+      "profesion": "dsadsa",
+      "telefono": "6546546546",
+      "email": "1@gmail.com",
+      "password": "111111"
+    }
+  ]
 }

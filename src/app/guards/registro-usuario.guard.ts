@@ -9,4 +9,6 @@ export const registroUsuarioGuard: CanDeactivateFn<RegistroUsuarioComponent> = (
   
   return true;
 
+  
+
 };

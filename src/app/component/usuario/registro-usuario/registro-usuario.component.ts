@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Router } from '@angular/router';
 import { NavbarComponent } from "../../navbar/navbar.component";
 import { FooterComponent } from "../../footer/footer.component";
+import { AutenticacionService } from '../../../services/autenticacion.service';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -14,6 +15,8 @@ import { FooterComponent } from "../../footer/footer.component";
 export class RegistroUsuarioComponent implements OnInit {
 
   enviado: boolean = false;
+
+  usuarioService = inject(AutenticacionService);
 
   usuariosRegistrados: any[] = [];
 
@@ -42,16 +45,12 @@ export class RegistroUsuarioComponent implements OnInit {
       this.enviado = true;
       const nuevoUsuario = this.registroForm.value;
 
-      const usuariosLocales = JSON.parse(localStorage.getItem("usuariosExtras") || "[]");
-      usuariosLocales.push(nuevoUsuario);
-      localStorage.setItem("usuariosExtras", JSON.stringify(usuariosLocales));
-
-      alert("Registrado exitosamente.");
-      this.registroForm.reset();
-
-      this.cargarUsuarios();
-
-      this.router.navigateByUrl("/login");
+      this.usuarioService.RegistrarUsuario(nuevoUsuario).subscribe(() => {
+        alert("Registrado exitosamente.");
+        this.registroForm.reset();
+        this.cargarUsuarios();
+        this.router.navigateByUrl("/login");
+      });
     } else {
       this.registroForm.markAllAsTouched();
       console.log("Formulario no válido");
@@ -59,6 +58,8 @@ export class RegistroUsuarioComponent implements OnInit {
   }
 
   cargarUsuarios() {
-    this.usuariosRegistrados = JSON.parse(localStorage.getItem("usuariosExtras") || "[]");
+    this.usuarioService.obtenerUsuarios().subscribe(data => {
+      this.usuariosRegistrados = data;
+    });
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticacionService } from '../../../services/autenticacion.service';
@@ -12,12 +12,17 @@ import { FooterComponent } from "../../footer/footer.component";
   templateUrl: './login-usuario.component.html',
   styleUrls: ['./login-usuario.component.css']
 })
+
 export class LoginUsuarioComponent {
   email: string = '';
   password: string = '';
   error: string = '';
 
-  constructor(private authServicio: AutenticacionService, private router: Router) { }
+  constructor(
+    private authServicio: AutenticacionService,
+    private router: Router,
+    private cdRef: ChangeDetectorRef
+  ) {}
 
   Login() {
     this.authServicio.LoginAuthenticacion(this.email, this.password).subscribe(sesionExitosa => {
@@ -25,10 +30,12 @@ export class LoginUsuarioComponent {
         const redireccion = localStorage.getItem("redirectUrl") || "/productos";
         this.email = '';
         this.password = '';
+        this.error = '';
         localStorage.removeItem("redirectUrl");
         this.router.navigateByUrl(redireccion);
       } else {
         this.error = "Usuario o contraseña incorrectos.";
+        this.cdRef.detectChanges();
       }
     });
   }
